@@ -5,27 +5,31 @@ import Todo from "./Todo";
 function TodoList() {
   const [todos, setTodos] = useState([]);
 
+  //הפונקציה הזאת מוסיפה למערך
   const addTodo = (todo) => {
     if (!todo.text || /^\s*$/.test(todo.text)) {
       return;
     }
-
+    //יש כאן את המערך הישן והפרמטר שאנחנו מקבלים מהפונקציה
     const newTodos = [todo, ...todos];
 
     setTodos(newTodos);
-    console.log(todo, ...todos);
   };
-
+  // הפונקציה הזאת מעדכנת את הערך אם המשתמש רוצה לשנות אותו
   const updateTodo = (todoId, newValue) => {
     if (!newValue.text || /^\s*$/.test(newValue.text)) {
       return;
     }
+
+    // לוקח את הפרמטר הקודם ממפה מחפש אם יש התאמה לטודו איי די אם יש אז הסט טודו מקבל ניו וואליו
     setTodos((prev) =>
       prev.map((item) => (item.id === todoId ? newValue : item))
     );
   };
 
+  // הפונקציה הזאת מורידה את הטודו מהרשימה
   const removeTodo = (id) => {
+    // מורידה את את הטודו מהרשימה על ידי פילטר אם האיידי לא שווה
     const removedArr = [...todos].filter((todo) => todo.id !== id);
 
     setTodos(removedArr);
