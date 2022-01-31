@@ -1,3 +1,14 @@
 .App {
   text-align: center;
 }
+
+.todo-row {
+  background-color: rgb(175, 255, 255);
+  height: 50px;
+  width: 300px;
+  margin: 5px auto;
+}
+
+.icons {
+  margin: 0 auto;
+}

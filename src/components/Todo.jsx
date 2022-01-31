@@ -11,6 +11,7 @@ function Todo({ todos, completeTodo, removeTodo, updateTodo }) {
     value: "",
   });
 
+  //הפונקציה מעדכנת את את הערך אם המשתמש רוצה לשנות אותו
   const submitUpdate = (value) => {
     updateTodo(edit.id, value);
     setEdit({
@@ -19,6 +20,7 @@ function Todo({ todos, completeTodo, removeTodo, updateTodo }) {
     });
   };
 
+  //אם האיידי משתנה תחזיר את הקומפננטה הבאה
   if (edit.id) {
     return <TodoForm edit={edit} onSubmit={submitUpdate} />;
   }
